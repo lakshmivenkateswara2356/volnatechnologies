@@ -1,4 +1,4 @@
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import mrimage from "../assets/mrimage.svg";
 import paperplane from "../assets/paperplane.svg";
 import globe from "../assets/globe.svg";
