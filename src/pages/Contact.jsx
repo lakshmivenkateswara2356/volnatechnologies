@@ -44,11 +44,12 @@ const Contact = () => {
 
               <div className="text-white">
                 <p className="text-xs sm:text-sm opacity-80 mb-2">
-                  WordPress
+                  Volna Technologies
                 </p>
                 <p className="text-base sm:text-lg font-medium">
-                  The ideal course to learn how to manage all aspects
-                </p>
+  End-to-end solutions in web development, IT services, SEO, and automation
+</p>
+
               </div>
             </div>
           </div>

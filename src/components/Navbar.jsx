@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import logo from "../assets/companyimage.jpg";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Detect scroll to change background
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      if (window.scrollY > 50) setMenuOpen(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -19,6 +22,7 @@ const Navbar = () => {
       top: index * window.innerHeight,
       behavior: "smooth",
     });
+    setMenuOpen(false);
   };
 
   const navItems = [
@@ -38,44 +42,74 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer">
-          <img src={logo} alt="Logo" className="h-8 w-8 rounded-full" />
+          <img src={logo} alt="Volna Technologies Logo" className="h-8 w-8 rounded-full" />
           <span className="text-2xl font-bold text-white">volna</span>
         </div>
 
-        {/* Nav Links */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex gap-10">
           {navItems.map((item) => (
             <button
               key={item.label}
               onClick={() => goToSection(item.index)}
-              className="relative text-white font-medium cursor-pointer group"
+              className="relative text-white font-medium group"
             >
               {item.label}
-
-              {/* Animated underline */}
-              <span
-                className="absolute left-0 -bottom-1 h-[2px] w-0 bg-white
-                transition-all duration-300 group-hover:w-full"
-              />
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
         </div>
 
-        {/* WhatsApp Button */}
+        {/* Desktop Contact */}
         <a
-          href="https://wa.me/917842802368?text=Hi%20Volna%20Team,%20I’d%20like%20to%20discuss%20a%20project%20related%20to%20web%20development.%20Please%20get%20in%20touch."
+          href="https://wa.me/917842802368?text=Hi%20Volna%20Team,%20I’d%20like%20to%20discuss%20a%20project."
           target="_blank"
           rel="noopener noreferrer"
+          className="hidden md:block"
         >
           <button className="border border-white rounded-2xl h-[32px] w-[120px]
-            text-white font-semibold cursor-pointer
-            hover:bg-white hover:text-[#0A4D68]
+            text-white font-semibold hover:bg-white hover:text-[#0A4D68]
             transition-all duration-300">
             Contact
           </button>
         </a>
 
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-white"
+          aria-label="Toggle Menu"
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-[#3490a4] shadow-lg px-6 py-6 space-y-6">
+          {navItems.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => goToSection(item.index)}
+              className="block text-white text-lg font-medium"
+            >
+              {item.label}
+            </button>
+          ))}
+
+          <a
+            href="https://wa.me/917842802368?text=Hi%20Volna%20Team,%20I’d%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="w-full border border-white rounded-2xl h-[40px]
+              text-white font-semibold hover:bg-white hover:text-[#0A4D68]
+              transition-all duration-300">
+              Contact
+            </button>
+          </a>
+        </div>
+      )}
     </nav>
   );
 };

@@ -1,22 +1,27 @@
 import React from "react";
+import Ossind from "../assets/ossindpvtltd.png";
+import Alankar from "../assets/restoname.png";
+import Adarsh from "../assets/adarshschol.png";
 
 const reviews = [
   {
-    name: "Anna Tyuneva",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    text: "The course is great! Teachers talks very interesting and accessible. Thank you very much!",
+    name: "Ossind Pvt Ltd",
+    image: Ossind,
+    text: "Their team delivered our project on time with excellent quality. Communication was smooth, and they understood our requirements perfectly. Highly recommended for scalable software solutions.",
   },
   {
-    name: "Mykola Dunayev",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    text: "The course is clear enough. Well explained a lot of practice. I recommend to everyone!",
+    name: "Alankar Restaurant",
+    image: Alankar,
+    text: "They built a modern, user-friendly website that significantly improved our online presence. The team was responsive, professional, and supportive throughout the entire process.",
   },
   {
-    name: "Nastya Kozarchuk",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
-    text: "The training was in one breath. Very accessible courses, everything is very clear and good.",
+    name: "Adarsh School",
+    image: Adarsh,
+    text: "We partnered with them for our school management system, and the experience was excellent. The solution was reliable, secure, and tailored exactly to our needs.",
   },
 ];
+
+
 
 const Reviews = () => {
   return (
@@ -32,12 +37,8 @@ const Reviews = () => {
           <div key={index} className="text-center relative px-6">
             {/* Avatar blob */}
             <div className="relative w-32 h-32 mx-auto mb-6">
-              <div className="absolute inset-0 bg-[#F6C1A5] rounded-[45%]" />
-              <img
-                src={item.image}
-                alt={item.name}
-                className="relative w-24 h-24 rounded-full object-cover mx-auto top-4"
-              />
+              <div  />
+             
 
               {/* Decorative dots */}
               <span className="absolute -top-3 -left-4 w-4 h-4 border border-black rounded-full"></span>
